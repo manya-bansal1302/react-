@@ -1,3 +1,7 @@
+import React from "react";
+import ReactDOM from "react-dom/client";
+
+
 /* 
 *          How to create nested elements in react
 *<div id="parent">
@@ -14,44 +18,69 @@
 * ReactElememt(Object) => HTML(that browser understands)
 */
  
-//  const parent = React.createElement("div" , {id : "parent"} ,
-//  React.createElement("div" , {id : "child"}, 
-//  [React.createElement("h1",{}, "I am a h1 tag"), 
-//  React.createElement("h2",{}, "I am a h2 tag")]));
-//  console.log(parent);
-//  const root = ReactDOM.createRoot(document.getElementById('root'))
+/**********  React element ************/
+/*** React.createElement => ReactElement(creates an object) => (when we render than it becames HTML element) ***/
 
-// root.render(parent);
+/*const heading = React.createElement('h1',{id : "heading"}, "React");
+console.log(heading)
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(heading); */
+
+/*** JSX- is not HTML in JS ***/
+/*** JSX (transpiled before it reaches the javaScript engine) - Parcel - Babel ***/
+/*** JSX => React.createElement => ReactElement- JS Object => HTMLElement(render) ***/
+
+/*const jxsHeading = <h1 id="heading" >React~ using JSX</h1>
+console.log(jxsHeading)
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(jxsHeading); 
+
+const jxsPara = <p clasName="Para">Hey it's Manya</p>
+const para = ReactDOM.createRoot(document.getElementById('para'));
+para.render(jxsPara); */
 
 
-const parent = React.createElement("div" , {id : "parent"} ,
-React.createElement("div" , {id : "child"}, 
-[React.createElement("h1",{}, "I am a h1 tag"), 
-React.createElement("h2",{}, "I am a h2 tag")]),
-React.createElement("div" , {id : "child2"}, 
-[React.createElement("h1",{}, "I am a h1 tag"), 
-React.createElement("h2",{}, "I am a h2 tag")])
+/***                                React Componets                       ***/
+/** 1. Class Based Component - Old Way  **/
+/** 2. Functional Component - New Way  **/
+
+/************* React Functional Component ****************/
+  
+/* const Title =  function ()  {
+  return (
+  <h1 className="head">React</h1>
+  );
+}; */
+
+/** Component inside Component */
+/* const HeadingComponent = () => (
+  <div id="container">
+    <Title/>
+   <h1 className=" heading">React~ Functional Component</h1>
+  </div>
+) */
+
+/** const HeadingComponent = () => {
+  return  <h1>React~ Functional Component</h1>
+} **/
+
+/* const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<HeadingComponent/>); */
+
+
+/** Element inside component **/
+
+const element = <span>JSX</span>
+
+const title =  <h1 className="head"> {element} React</h1>
+
+const HeadingComponent = () => (
+  <div id="container">
+    { title }
+   <h1 className=" heading">React~ Functional Component</h1>
+  </div>
 );
 
- console.log(parent);
- const root = ReactDOM.createRoot(document.getElementById('root'))
-
-root.render(parent);
-
- // React code  (one element)
- /*
-  const heading = React.createElement("h1", {}, "Hello World From React!");
-
-  const root = ReactDOM.createRoot(document.getElementById("root"));
-
-  root.render(heading);*/
-
-  /*const para = React.createElement(
-    "p",
-  
-    {id: "paragraph", class: "paragraph"},
-    "Hey I'm Learning react from namasteh react"
-  );
-  console.log(para)  //this will return us a object
-  const paraRoot = ReactDOM.createRoot(document.getElementById("root"));
-  paraRoot.render(para);*/
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<HeadingComponent/>);
